@@ -148,6 +148,35 @@ function updateProductCounts() {
     });
 }
 
+
+
+
+function checkoutToWhatsApp() {
+    const phoneNumber = "2447062302404"; 
+    let message = "Hello Luxe Closet! I'd like to order: %0A%0A";
+    let grandTotal = 0;
+
+    if (cartList.length === 0) {
+        alert("Select some items first!");
+        return;
+    }
+
+    cartList.forEach((item, index) => {
+        let priceNum = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+        const itemTotal = priceNum * item.quantity;
+        grandTotal += itemTotal;
+        
+     
+        message += `${index + 1}. *${item.name}* %0A`;
+        message += `   Qty: ${item.quantity} %0A`;
+        message += `   Subtotal: ₦${itemTotal.toLocaleString()} %0A%0A`;
+    });
+
+    message += `*Grand Total: ₦${grandTotal.toLocaleString()}*`;
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappURL, '_blank');
+}
  
 // Use event delegation for dynamically created cart buttons
 document.querySelector(".grid").addEventListener('click', (e) => {
