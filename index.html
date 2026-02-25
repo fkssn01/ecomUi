@@ -6,6 +6,7 @@
     <title>E-commerce</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -27,12 +28,12 @@
      </section>
 
      <section class="icons mess ">
-        <div class="mess reveal">
+        <div class="mess">
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-whatsapp"></i>
         </div>
         <i onclick="openWish()" class="fa-regular fa-heart"><p class="wishlist-count"></p></i>
-        <i id="togCart" onclick="toggleCart()" class="fa fa-cart-shopping"><p class="cart-count"></p></i>
+        <i id="togCart" onclick="toggleCart()" class="fa fa-cart-shopping"><p class="cart-count" ></p></i>
         <i id="hamburgerMenu" class="fa-solid fa-bars" onclick="sideMenu()"></i>
         <i id="closeBar" class="fa fa-xmark" onclick="closeNav()"></i>
      </section>
@@ -51,118 +52,29 @@
 </section>
 
 <section class="products-grid">
-<div class="price-header">
+<div class="price-header" data-aos="fade-up">
   <p>CURATED COLLECTION</p>
     <h1>Featured Pieces</h1>
 </div>
 <div class="product-menu">
-<div>PERFUMES</div>
-<div>CLOTHES</div>
-<div class="acc">ACCESSORIES</div>
+<div data-aos="fade-up">PERFUMES</div>
+<div data-aos="fade-up">CLOTHES</div>
+<div class="acc" data-aos="fade-up">ACCESSORIES</div>
 </div>
 
 
 </section>
 <section class="grid">
-
-    <div class="product">
-     <img src="images\bagscol.jpg" class="prod-img" alt="">
-   <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-       <div class="cart-num"></div>
-   <div class="cart-sec">
-<p class="prod-name">50ml Yara and Asad Collection</p>
-<p class="price">₦11,000</p>
-<div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-   </div>
-    </div>
-
-    <div class="product">
-     <img src="images\bgs.jpg" class="prod-img" alt="">
-         <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-          <div class="cart-num"></div>
-         <div class="cart-sec">
-          <p class="prod-name">9pm Rebel by Afnan</p>
-          <p class="price">₦48,000</p>
-          <div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-         </div>
-    </div>
-
-     <div class="product">
-     <img src="images\color.jpg" class="prod-img" alt="">
-         <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-          <div class="cart-num"></div>
-         <div class="cart-sec">
-          <p class="prod-name">Badee Al Oud Collection</p>
-          <p class="price">₦36,000</p>
-          <div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-         </div>
-    </div>
-
-     <div class="product">
-     <img src="images\cosme.jpg" class="prod-img" alt="">
-         <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-          <div class="cart-num"></div>
-         <div class="cart-sec">
-          <p class="prod-name">Ladies Crystal Watch Set</p>
-          <p class="price">₦7,000</p>
-          <div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-         </div>
-    </div>
-
-
-     <div class="product">
-     <img src="images\newsec.jpg" class="prod-img" alt="">
-         <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-          <div class="cart-num"></div>
-         <div class="cart-sec">
-          <p class="prod-name">Ladies bag</p>
-          <p class="price">₦29,000</p>
-          <div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-         </div>
-    </div>
-
-     <div class="product">
-     <img src="images\watch.jpg" class="prod-img" alt="">
-         <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-          <div class="cart-num"></div>
-         <div class="cart-sec">
-          <p class="prod-name">Valenzo Plastic watch</p>
-          <p class="price">₦25,000</p>
-          <div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-         </div>
-    </div>
-
-     <div class="product">
-     <img src="images\newbag.jpg" class="prod-img" alt="">
-         <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-          <div class="cart-num"></div>
-         <div class="cart-sec">
-          <p class="prod-name">Ladies new bag</p>
-          <p class="price">₦7,000</p>
-          <div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-         </div>
-    </div>
-
-     <div class="product">
-     <img src="images\bouqet.jpg" class="prod-img" alt="">
-         <div class="fav-icon"><i class="fa-solid fa-heart"></i></div> 
-          <div class="cart-num"></div>
-         <div class="cart-sec">
-          <p class="prod-name">Gold Nail Bracelet</p>
-          <p class="price">₦3,000</p>
-          <div class="cart-btn"><i class="fa fa-shopping-bag"></i>Add to Cart</div>
-         </div>
-    </div>
 </section>
 
-<div class="more-p"><button>VIEW ALL PRODUCTS <i class="fa fa-arrow-right"></i></button></div>
+<div class="more-p" data-aos="fade-up"><button>VIEW ALL PRODUCTS <i class="fa fa-arrow-right"></i></button></div>
 
 <section class="essence">
-          <div class="ess-div"><h4>OUR ESSENCE</h4>
-          <h1>Curated, Not Crowded.</h1>
-          <p>The Luxe Closet is more than a store—it's an invitation to elevate your presence. We curate luxury perfumes, fashion, and lifestyle items for those who understand that true elegance whispers.</p>
-     <p>Based in Lagos, Nigeria, we bring world-class luxury to discerning individuals who appreciate quality over quantity, substance over flash.</p>
-<div class="count">
+          <div class="ess-div" data-aos="fade-in"><h4>OUR ESSENCE</h4>
+          <h1 data-aos="fade-up">Curated, Not Crowded.</h1>
+          <p data-aos="fade-up">The Luxe Closet is more than a store—it's an invitation to elevate your presence. We curate luxury perfumes, fashion, and lifestyle items for those who understand that true elegance whispers.</p>
+     <p data-aos="fade-up">Based in Lagos, Nigeria, we bring world-class luxury to discerning individuals who appreciate quality over quantity, substance over flash.</p>
+<div class="count" data-aos="fade-up">
      <div>100 + <br> <p>PRODUCTS</p></div>
      <div>500 + <br> <p>HAPPY CLIENTS</p></div>
      <div>Lagos <br> <P>BASED</P></div>
@@ -172,11 +84,11 @@
 
 <section class="up-sec">
 <div class="up-sty">
-     <h1>Ready to upgrade your style?</h1>
-     <p>Browse our collection or reach out on Instagram. We're here to help <br> you find the perfect piece.</p>
+     <h1 data-aos="fade-up">Ready to upgrade your style?</h1>
+     <p data-aos="fade-up">Browse our collection or reach out on Instagram. We're here to help <br> you find the perfect piece.</p>
      <div class="shop4">
-          <div>Shop Now <i class="fa fa-arrow-right"></i></div>
-          <div><i class="fa-brands fa-instagram"></i>Follow on Instagram</div>
+          <div data-aos="fade-up">Shop Now <i class="fa fa-arrow-right"></i></div>
+          <div data-aos="fade-up"><i class="fa-brands fa-instagram"></i>Follow on Instagram</div>
      </div>
 </div>
 
@@ -269,9 +181,17 @@
     </div>
 </section>
 
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({offset: 300, 
+  duration: 1000});
+  </script>
 <script src="./js/com.js"></script>
 <script src="./js/sidebar.js"></script>
 <script src="./js/wishlist.js"></script>
+<script src="./js/product.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="./js/animate.js"></script>
+
 </body>
 </html>

@@ -24,13 +24,13 @@ function clearAll() {
 
     updateProductCounts();
     refreshCart();
+   
     cartTotal();
 }
 
 let cartList = [];
 let totalHeaderCount = 0;
 
-const allButtons = document.querySelectorAll(".cart-btn");
 const cartContainer = document.querySelector(".cart-content");
 const emptyCartBG = document.querySelector(".cartEmpty");
 const sideFooter = document.querySelector(".check-total-sec");
@@ -86,6 +86,26 @@ function refreshCart() {
 }
 
 function deleteItem(index) {
+    const itemElement = cartContainer.children[index];
+    const itemToDelete = cartList[index];
+
+    if (itemElement && itemToDelete) {
+        itemElement.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+        itemElement.style.opacity = "0";
+        itemElement.style.transform = "translateX(20px)";
+
+        setTimeout(() => {
+            const currentIndex = cartList.indexOf(itemToDelete);
+            if (currentIndex > -1) {
+                finalizeDelete(currentIndex);
+            }
+        }, 400);
+    } else {
+        finalizeDelete(index);
+    }
+}
+
+function finalizeDelete(index) {
     // Get the quantity of the item being deleted
     const qtyToRemove = cartList[index] ? cartList[index].quantity : 1;
     cartList.splice(index, 1);
@@ -128,9 +148,12 @@ function updateProductCounts() {
     });
 }
 
-allButtons.forEach(btn => {
-    btn.addEventListener('click', function(event) {
-        const productBox = event.currentTarget.closest(".product");
+ 
+// Use event delegation for dynamically created cart buttons
+document.querySelector(".grid").addEventListener('click', (e) => {
+    if (e.target.closest('.cart-btn')) {
+        const cartBtn = e.target.closest('.cart-btn');
+        const productBox = cartBtn.closest(".product");
 
         const name = productBox.querySelector(".prod-name").innerText;
         const price = productBox.querySelector(".price").innerText;
@@ -167,24 +190,24 @@ allButtons.forEach(btn => {
         globalCartBadge.textContent = globalCartCount > 99 ? "99+" : globalCartCount;
         globalCartBadge.style.display = "block";
 
+        if (typeof animateCartCount === 'function') {
+            animateCartCount();
+        }
+
         refreshCart();
         updateProductCounts();
         cartTotal();
-    });
-});
 
+        const cartNum = productBox.querySelector(".cart-num");
+        if (cartNum && typeof animateCartNum === 'function') {
+            animateCartNum(cartNum);
+        }
 
- const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
+        if (typeof animateCartTotalFooter === 'function') {
+            animateCartTotalFooter();
+        }
     }
-  });
-}, { threshold: 0.1 });
-
-// Select all elements you want to animate
- const hiddenElements = document.querySelectorAll('.reveal');
-hiddenElements.forEach((el) => observer.observe(el));
+});
 
 // Initialize cart state on page load */
 refreshCart();

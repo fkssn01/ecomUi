@@ -1,11 +1,8 @@
 
  const wishSide = document.getElementById("wishlist-overlay");
     const wishSidebar = document.getElementById("wishlistSide");
-const favBtn = document.querySelectorAll(".fav-icon");
 const heartIcon = document.querySelectorAll(".fa-heart");
 const wishListCounter = document.querySelector(".wishlist-count");
-
-
 
 let wishlistCount = 0;
 const wishContainer = document.querySelector(".wishContent");
@@ -23,10 +20,8 @@ function clearWish() {
     document.querySelectorAll(".fav-icon.active").forEach(icon => {
         icon.classList.remove("active");
     });
- 
-
- 
     
+
     drawWishList();
 }
 
@@ -91,8 +86,6 @@ window.AddWishItemtoCart = function(index) {
     });
 }
 
-
-
 function openWish() {
     wishSidebar.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -101,34 +94,36 @@ function openWish() {
     wishSidebar.classList.toggle("active");
 }
 
-favBtn.forEach(faBtn => {
-    faBtn.addEventListener('click', (e) => {
-        let wishColor = e.currentTarget.classList.toggle("active");
-        const wishBox = e.currentTarget.closest(".product");
-        const name = wishBox.querySelector(".prod-name").innerText;
-        const price = wishBox.querySelector(".price").innerText;
-        const image = wishBox.querySelector("img").src;
-  
-        if (wishColor) {
-            wishlistCount++;
-            wishList.push({ name, price, image });
-           
-            
-        } else {
-            wishlistCount--;
-            wishList = wishList.filter(item => item.name !== name);
-           
-        }
+// Use event delegation for dynamically created heart icons
+document.querySelector(".grid").addEventListener('click', (e) => {
+  if (e.target.closest('.fav-icon')) {
+    const faBtn = e.target.closest('.fav-icon');
+    let wishColor = faBtn.classList.toggle("active");
+    const wishBox = faBtn.closest(".product");
+    const name = wishBox.querySelector(".prod-name").innerText;
+    const price = wishBox.querySelector(".price").innerText;
+    const image = wishBox.querySelector("img").src;
 
-        wishListCounter.textContent = wishlistCount;
+    if (wishColor) {
+      wishlistCount++;
+      wishList.push({ name, price, image });
+    } else {
+      wishlistCount--;
+      wishList = wishList.filter(item => item.name !== name);
+    }
 
-        if (wishlistCount > 0) {
-            wishListCounter.classList.add("active");
-        } else {
-            wishListCounter.classList.remove("active");
-        }
-        drawWishList();
-    });
+    wishListCounter.textContent = wishlistCount;
+
+    if (wishlistCount > 0) {
+      wishListCounter.classList.add("active");
+      if (typeof animateWishlistCount === 'function') {
+        animateWishlistCount();
+      }
+    } else {
+      wishListCounter.classList.remove("active");
+    }
+    drawWishList();
+  }
 });
 
 drawWishList();
