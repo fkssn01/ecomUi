@@ -152,7 +152,7 @@ function updateProductCounts() {
 
 
 function checkoutToWhatsApp() {
-    const phoneNumber = "2447062302404"; 
+    const phoneNumber = "2347062302404"; 
     let message = "Hello Luxe Closet! I'd like to order: %0A%0A";
     let grandTotal = 0;
 
