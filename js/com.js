@@ -1,8 +1,7 @@
-const openMenu = document.getElementById("hamburgerMenu");
-const MenuNav = document.getElementById("menuNav");
-const closeSide = document.getElementById("closeBar");
+var openMenu;
+var MenuNav;
+var closeSide;
 
-let globalCartCount = 0;
 const globalCartBadge = document.querySelector(".cart-count");
 
 function sideMenu() {
@@ -20,7 +19,10 @@ function closeNav() {
 }
 
 // Button feedback animation for cart buttons
-document.querySelector(".grid").addEventListener('click', (e) => {
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector(".grid");
+  if (grid) {
+    grid.addEventListener('click', (e) => {
   if (e.target.closest('.cart-btn')) {
     const clickedBtn = e.target.closest('.cart-btn');
     const buttonEl = clickedBtn;
@@ -39,8 +41,15 @@ document.querySelector(".grid").addEventListener('click', (e) => {
       buttonEl.classList.remove('added');
     }, 1000); 
   }
+    });
+  }
 });
 
-if (openMenu) openMenu.addEventListener("click", sideMenu);
-if (closeSide) closeSide.addEventListener("click", closeNav);
+document.addEventListener('DOMContentLoaded', () => {
+    openMenu = document.getElementById("hamburgerMenu");
+    MenuNav = document.getElementById("menuNav");
+    closeSide = document.getElementById("closeBar");
 
+    if (openMenu) openMenu.addEventListener("click", sideMenu);
+    if (closeSide) closeSide.addEventListener("click", closeNav);
+});

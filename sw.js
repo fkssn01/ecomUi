@@ -1,4 +1,4 @@
-const CACHE_NAME = 'luxe-v1';
+const CACHE_NAME = 'luxe-v4';
 const criticalAssets = [
   './',
   './index.html',
@@ -34,7 +34,6 @@ self.addEventListener('install', event => {
   );
   self.skipWaiting();
 });
-caches
 
 self.addEventListener('activate', event => {
   event.waitUntil(
@@ -53,17 +52,17 @@ self.addEventListener('activate', event => {
 
 // Serve files from cache when offline, fallback to network
 self.addEventListener('fetch', event => {
-  // Don't cache API calls
-  if (event.request.url.includes('api.sheety.co') || event.request.url.includes('googleapis')) {
+  // Allow external APIs to fetch from network
+  if (event.request.url.includes('googleapis') || event.request.url.includes('cdnjs') || event.request.url.includes('unpkg') || event.request.url.includes('docs.google.com') || event.request.url.includes('google.com')) {
     event.respondWith(
       fetch(event.request).catch(() => {
-        return new Response(JSON.stringify({error: 'Offline - API not available'}), { status: 503 });
+        return new Response(JSON.stringify({error: 'Offline - External resource not available'}), { status: 503 });
       })
     );
     return;
   }
   
-  // Cache first strategy for other requests
+  // Cache first strategy for local assets
   event.respondWith(
     caches.match(event.request).then(response => {
       return response || fetch(event.request);

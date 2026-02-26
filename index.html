@@ -22,6 +22,28 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Luxe Closet">
 <link rel="apple-touch-icon" href="./images/bagscol.jpg">
+<style>
+  .install-app-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      background-color: #1a1a1a;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      align-items: center;
+      gap: 8px;
+  }
+</style>
 </head>
 <body>
   
@@ -37,9 +59,6 @@
      </section>
 
      <section class="icons mess ">
-        <button id="installAppBtn" class="install-app-btn" onclick="installApp()" style="display: none;">
-            <i class="fa-solid fa-download"></i> Install App
-        </button>
         <div class="mess">
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-whatsapp"></i>
@@ -201,17 +220,21 @@
     </div>
 </section>
 
+<button id="installAppBtn" class="install-app-btn" onclick="installApp()" style="display: none;">
+    <i class="fa-solid fa-download"></i> Install App
+</button>
+
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init({offset: 200, 
         once: true, 
   duration: 1000});
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 <script src="./js/com.js"></script>
 <script src="./js/sidebar.js"></script>
 <script src="./js/wishlist.js"></script>
 <script src="./js/product.js"></script>
-<script src="./js/admin.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 <script src="./js/animate.js"></script>
 <script>
