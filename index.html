@@ -217,18 +217,19 @@
 <script>
   let deferredPrompt;
   
+  console.log('%c PWA Installation Check', 'color: green; font-size: 16px; font-weight: bold;');
+  
   // Capture the beforeinstallprompt event
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    console.log('Install prompt is ready!');
-    // Show your install button
+    console.log('%c Install prompt captured!', 'color: green; font-size: 14px;');
     showInstallButton();
   });
 
   // Listen for app was installed
   window.addEventListener('appinstalled', () => {
-    console.log('PWA app installed successfully!');
+    console.log('%c App installed successfully!', 'color: green; font-size: 14px;');
     deferredPrompt = null;
     hideInstallButton();
   });
@@ -237,6 +238,9 @@
     const installBtn = document.getElementById('installAppBtn');
     if (installBtn) {
       installBtn.style.display = 'flex';
+      console.log('Install button shown');
+    } else {
+      console.log('Install button NOT found in DOM');
     }
   }
 
@@ -244,28 +248,39 @@
     const installBtn = document.getElementById('installAppBtn');
     if (installBtn) {
       installBtn.style.display = 'none';
+      console.log('Install button hidden');
     }
   }
 
   function installApp() {
+    console.log('Install button clicked');
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
+          console.log('%c User accepted installation', 'color: green; font-size: 14px;');
         } else {
-          console.log('User dismissed the install prompt');
+          console.log('User dismissed installation');
         }
         deferredPrompt = null;
       });
+    } else {
+      console.log('ERROR: deferredPrompt is null');
     }
   }
-if ('serviceWorker' in navigator) {
+
+  if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('Luxe App Ready!', reg))
-        .catch(err => console.log('Service Worker registration failed', err));
+        .then(reg => {
+          console.log('%c Service Worker registered successfully!', 'color: green; font-size: 14px;', reg);
+        })
+        .catch(err => {
+          console.error('%c Service Worker registration FAILED', 'color: red; font-size: 14px;', err);
+        });
     });
+  } else {
+    console.error('Service Workers not supported in this browser');
   }
 </script>
 </body>
