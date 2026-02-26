@@ -1,4 +1,4 @@
-/* Prevent text selection on all elements */
+
 
 * {
     padding: 0px;
@@ -9,6 +9,10 @@
 /* Hide tap highlight on all elements */
 html, body, * {
     -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Prevent text selection on text elements only */
+p, h1, h2, h3, h4, h5, h6, span, div, .price-header, .cart-sec, .essence, .wishHeader, .wish-info, .item-info, .cartEmpty, .wishEmpty {
     user-select: none !important;
     -webkit-user-select: none !important;
     -ms-user-select: none !important;
