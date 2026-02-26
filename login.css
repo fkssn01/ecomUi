@@ -1,3 +1,7 @@
+/* Hide tap highlight on all elements */
+html, body, * {
+  -webkit-tap-highlight-color: transparent !important;
+}
 body {
     display: flex;
     align-items: center;

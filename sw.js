@@ -14,16 +14,15 @@ const optionalAssets = [
   './images/bagscol.jpg'
 ];
 
-// Install the service worker and cache files
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      // Cache critical assets
+
       cache.addAll(criticalAssets).catch(err => {
         console.log('Critical assets cache error:', err);
       });
       
-      // Cache optional assets without blocking
       optionalAssets.forEach(url => {
         cache.add(url).catch(err => {
           console.log(`Failed to cache: ${url}`, err);
@@ -35,8 +34,8 @@ self.addEventListener('install', event => {
   );
   self.skipWaiting();
 });
+caches
 
-// Activate and cleanup old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => {

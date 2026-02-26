@@ -1,11 +1,14 @@
+
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
- 
 }
 
-
+/* Hide tap highlight on all elements */
+html, body, * {
+    -webkit-tap-highlight-color: transparent !important;
+}
 
 html {
     scroll-behavior: smooth;
@@ -29,8 +32,7 @@ body {
   margin: 0px;
   padding: 0px;
 
-   -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
-  
+ 
 }
 
 .header {
@@ -49,9 +51,7 @@ body {
 }
 
 /* Hide tap highlight on touch devices */
-html, body, * {
-    -webkit-tap-highlight-color: transparent;
-}
+
 
 .navbar h1 {
         font-size: 40px;
@@ -1345,6 +1345,9 @@ gap: 30px;
 }
 
 @media (max-width: 430px) {
+
+
+
 
     .wishlistSide {
         width: 100%;
