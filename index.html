@@ -15,7 +15,13 @@
 <link rel="stylesheet" href="com.css">
 
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#d4af37">
+<meta name="theme-color" content="#d8bfd8">
+<!-- Mobile Web App Meta Tags -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Luxe Closet">
+<link rel="apple-touch-icon" href="./images/bagscol.jpg">
 </head>
 <body>
   
@@ -31,6 +37,9 @@
      </section>
 
      <section class="icons mess ">
+        <button id="installAppBtn" class="install-app-btn" onclick="installApp()" style="display: none;">
+            <i class="fa-solid fa-download"></i> Install App
+        </button>
         <div class="mess">
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-whatsapp"></i>
@@ -206,11 +215,56 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 <script src="./js/animate.js"></script>
 <script>
-  if ('serviceWorker' in navigator) {
+  let deferredPrompt;
+  
+  // Capture the beforeinstallprompt event
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    console.log('Install prompt is ready!');
+    // Show your install button
+    showInstallButton();
+  });
+
+  // Listen for app was installed
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA app installed successfully!');
+    deferredPrompt = null;
+    hideInstallButton();
+  });
+
+  function showInstallButton() {
+    const installBtn = document.getElementById('installAppBtn');
+    if (installBtn) {
+      installBtn.style.display = 'flex';
+    }
+  }
+
+  function hideInstallButton() {
+    const installBtn = document.getElementById('installAppBtn');
+    if (installBtn) {
+      installBtn.style.display = 'none';
+    }
+  }
+
+  function installApp() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+      });
+    }
+  }
+if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('Luxe App Ready!'))
-        .catch(err => console.log('Registration failed', err));
+        .then(reg => console.log('Luxe App Ready!', reg))
+        .catch(err => console.log('Service Worker registration failed', err));
     });
   }
 </script>
