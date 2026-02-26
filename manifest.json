@@ -1,0 +1,39 @@
+{
+  "name": "The Luxe Closet - Luxury Fashion & Perfumes",
+  "short_name": "Luxe Closet",
+  "description": "Your aura, upgraded. Curated luxury perfumes, fashion, and lifestyle items.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#242222",
+  "theme_color": "#d8bfd8",
+  "icons": [
+    {
+      "src": "./images/bagscol.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/bagscol.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./images/brand.jpg",
+      "sizes": "144x144",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["shopping", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "./images/luxury.jpg",
+      "sizes": "540x720",
+      "type": "image/jpeg"
+    }
+  ]
+}
