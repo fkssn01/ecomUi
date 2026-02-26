@@ -106,14 +106,14 @@ function deleteItem(index) {
 }
 
 function finalizeDelete(index) {
-    // Get the quantity of the item being deleted
+
     const qtyToRemove = cartList[index] ? cartList[index].quantity : 1;
     cartList.splice(index, 1);
     totalHeaderCount -= qtyToRemove;
     if (totalHeaderCount < 0) totalHeaderCount = 0;
     const headerBadge = document.querySelector(".num-of-cart");
     headerBadge.innerText = `(${totalHeaderCount} items)`;
-    // Also update the global cart count and badge
+
     globalCartCount -= qtyToRemove;
     if (globalCartCount < 0) globalCartCount = 0;
     const globalCartBadge = document.querySelector(".cart-count");
@@ -121,7 +121,7 @@ function finalizeDelete(index) {
     if (globalCartCount === 0) {
         globalCartBadge.style.display = "none";
     }
-    // Update per-product cart-num
+
     updateProductCounts();
     refreshCart();
     cartTotal();
@@ -178,7 +178,7 @@ function checkoutToWhatsApp() {
     window.open(whatsappURL, '_blank');
 }
  
-// Use event delegation for dynamically created cart buttons
+
 document.querySelector(".grid").addEventListener('click', (e) => {
     if (e.target.closest('.cart-btn')) {
         const cartBtn = e.target.closest('.cart-btn');
@@ -213,7 +213,6 @@ document.querySelector(".grid").addEventListener('click', (e) => {
         totalHeaderCount = totalHeaderCount + 1;
         headerBadge.innerText = `(${totalHeaderCount} items)`;
 
-        // Update global cart count and badge
         globalCartCount++;
         const globalCartBadge = document.querySelector(".cart-count");
         globalCartBadge.textContent = globalCartCount > 99 ? "99+" : globalCartCount;
@@ -238,5 +237,5 @@ document.querySelector(".grid").addEventListener('click', (e) => {
     }
 });
 
-// Initialize cart state on page load */
+
 refreshCart();

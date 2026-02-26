@@ -64,7 +64,7 @@ window.deleteWishItem = function(index) {
     wishListCounter.textContent = wishlistCount;
     if (wishlistCount <= 0) wishListCounter.classList.remove("active");
 
-    // Remove active class from the corresponding product heart icon
+    
     const products = document.querySelectorAll(".product");
     products.forEach(prod => {
         if (prod.querySelector(".prod-name").innerText === item.name) {
@@ -94,7 +94,7 @@ function openWish() {
     wishSidebar.classList.toggle("active");
 }
 
-// Use event delegation for dynamically created heart icons
+
 document.querySelector(".grid").addEventListener('click', (e) => {
   if (e.target.closest('.fav-icon')) {
     const faBtn = e.target.closest('.fav-icon');

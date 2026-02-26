@@ -45,7 +45,7 @@
 <p class="lagos">LAGOS • NIGERIA </p>
 <p class="aura ">Your aura, upgraded</p>
 <p class="smell">Smell expensive. Look unforgettable.</p>
-<div class="shop ">
+<div class="shop " data-aos="fade-up">
    <button class="shop1">SHOP NOW <i class="fa fa-arrow-right"></i></button>
    <button class="shop2"><i class="fa-brands fa-whatsapp"></i>CHAT ON WHATSAPP</button>
 </div>
@@ -64,6 +64,14 @@
 
 
 </section>
+
+
+<section class="loader">
+<div class="circle"></div>
+<p>Loading the closet</p>
+</section>
+
+
 <section class="grid">
 </section>
 
@@ -183,13 +191,15 @@
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    AOS.init({offset: 250, 
+    AOS.init({offset: 200, 
+        once: true, 
   duration: 1000});
   </script>
 <script src="./js/com.js"></script>
 <script src="./js/sidebar.js"></script>
 <script src="./js/wishlist.js"></script>
 <script src="./js/product.js"></script>
+<script src="./js/admin.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 <script src="./js/animate.js"></script>
 

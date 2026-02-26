@@ -1,13 +1,15 @@
 function animateCartCount() {
     const target = '.cart-count';
-    anime.remove(target); // Stop any current animation to prevent glitches
+    anime.remove(target); 
     anime({
         targets: target,
-        scale: [0, 1], // Pop from 0 to 1
+        scale: [0, 1], 
         duration: 1000,
-        easing: 'easeOutElastic(1, .6)' // Elastic bounce effect
+        easing: 'easeOutElastic(1, .6)' 
     });
 }
+
+
 
 
 function animateWishlistCount() {
@@ -41,3 +43,5 @@ anime({
     easing: 'easeOutElastic(1, .6)'
 })
 }
+
+
