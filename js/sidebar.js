@@ -204,18 +204,22 @@ function updateProductCounts() {
 
 
 function checkoutToWhatsApp() {
-    const phoneNumber = "2347062302404"; 
-    let message = "Hello Luxe Closet! I'd like to order: %0A%0A";
-    let grandTotal = 0;
-
+    console.log("Checkout Clicked! (Version 7) - " + new Date().toLocaleTimeString());
     if (cartList.length === 0) {
         alert("Select some items first!");
         return;
     }
 
+
+
+    const phoneNumber = "2347062302404"; 
+    let message = "Hello Luxe Closet! I'd like to order: %0A%0A";
+    let grandTotal = 0;
+
     cartList.forEach((item, index) => {
         // Handle prices with or without ₦ symbol
-        let priceNum = parseFloat(item.price.replace(/[₦,\s]/g, ''));
+        let priceStr = String(item.price || "0");
+        let priceNum = parseFloat(priceStr.replace(/[₦,\s]/g, ''));
         if (isNaN(priceNum)) priceNum = 0;
         const itemTotal = priceNum * item.quantity;
         grandTotal += itemTotal;
@@ -226,6 +230,40 @@ function checkoutToWhatsApp() {
     });
 
     message += `*Grand Total: ₦${grandTotal.toLocaleString()}*`;
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzYks4WU8ApHb0zNKwCxRKSc2uA6f40QefGkLGYZKSwthJgYUENm5JYQqcv_zIHzknD/exec';
+
+    const uniqueOrderId = "#LC-" + Math.floor(Math.random() * 10000);
+
+    // Prepare the data for YOUR eyes
+    const orderData = {
+        orderId: uniqueOrderId,
+        items: cartList.map(i => `${i.name} (x${i.quantity})`).join(", "),
+        total: `₦${grandTotal.toLocaleString()}`
+    };
+
+
+    // Send to Google Sheets (Hidden from user)
+    console.log("Sending Order Data:", orderData);
+    console.log("Sending Order Data...");
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors', // Essential for Google Apps Script
+        headers: {
+            'Content-Type': 'text/plain'
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(() => {
+        console.log("Signal successfully sent to Google Script URL! 🚀"); //
+    })
+    .catch(error => {
+        console.error("Error sending to Google Sheets:", error); //
+    });
+
+    // Provide immediate user feedback
+  
+   
 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappURL, '_blank');
