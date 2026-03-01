@@ -38,6 +38,33 @@ FK STORES is a premium, high-performance e-commerce landing page built with a fo
 
 ---
 
+# 🛍️ FK STORES | Full-Stack E-commerce & Analytics
+
+A luxury fashion PWA (Progressive Web App) integrated with a real-time business intelligence dashboard.
+
+## 🚀 Key Features
+* **Progressive Web App**: Optimized for mobile with "Add to Home Screen" functionality.
+* **Live Database**: Order data is automatically synced from the storefront to Google Sheets.
+* **Real-Time Analytics**: A custom Python dashboard tracks revenue, order volume, and sales trends.
+* **Luxury UI**: Styled with a premium aesthetic to match the "Luxe" brand identity.
+
+## 🛠️ Technology Stack
+- **Frontend**: HTML5, CSS3 (Premium Animations), JavaScript (PWA)
+- **Database**: Google Sheets API (via Google Apps Script)
+- **Analytics**: Python 3.12, Pandas, Streamlit, Plotly
+- **Hosting**: Vercel (Storefront) & Streamlit Cloud (Dashboard)
+
+## 📊 Business Intelligence
+The dashboard cleanses raw transaction data (handling currency formatting and time normalization) to provide the store owner with actionable insights.
+
+> **View Live Dashboard**: [https://fk-analytics.streamlit.app](https://fk-analytics.streamlit.app)
+
+
+
+
+
+
+
 ## 👨‍💻 Author
 
 #OSHINFISAN TEMILADE
