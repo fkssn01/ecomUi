@@ -1,4 +1,4 @@
-const CACHE_NAME = 'luxe-v10';
+const CACHE_NAME = 'luxe-v11';
 const criticalAssets = [
   './',
   './index.html',
@@ -11,7 +11,7 @@ const optionalAssets = [
   './js/sidebar.js',
   './js/wishlist.js',
   './js/animate.js',
-  './images/bagscol.jpg'
+  './images/logo/jfif'
 ];
 
 
