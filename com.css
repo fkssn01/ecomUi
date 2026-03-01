@@ -747,6 +747,7 @@ div .shop4 div:hover {
 }
 
 .cart-total-footer {
+    cursor: pointer;
     position: fixed;
     right: 30px;
     bottom: 50px;
@@ -1462,6 +1463,7 @@ div .check-total-sec {
    .sec1 .lagos {
 font-size: 15px;
 letter-spacing: 2px;
+flex-wrap: nowrap;
    }
 
 .sec1 .aura {
