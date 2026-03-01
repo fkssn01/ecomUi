@@ -1,44 +1,49 @@
-# The Luxe Closet 🛍️
+# FK STORES 🛍
 
-**A high-end, lightweight e-commerce PWA built for small business owners.**
-
----
-
-## 🌟 Project Overview
-The Luxe Closet is a modern digital storefront designed to bridge the gap between technical web solutions and non-technical business management. By leveraging **Google Sheets as a headless CMS**, it allows owners to manage their entire inventory from a mobile spreadsheet without ever touching the source code.
-
-## 🛠️ Key Features
-* **Google Sheets Integration**: Uses the "CSV Hack" with **PapaParse** for a completely free, real-time database.
-* **PWA (Progressive Web App)**: Installable on Android/iOS with offline support via Service Workers and a Manifest file.
-* **"Luxe" UI/UX**: Built with a mobile-first approach, featuring smooth loading animations powered by **Anime.js**.
-* **Dynamic Inventory**: Automatically renders product cards, pricing, and availability based on spreadsheet data.
-
-## 🚀 Technical Stack
-* **Frontend**: HTML5, CSS3 (Modern Flex/Grid), JavaScript (ES6+)
-* **Data Parsing**: [PapaParse](https://www.papaparse.com/)
-* **Animation**: [Anime.js](https://animejs.com/)
-* **Deployment**: [Vercel](https://vercel.com/)
-
-
-
-## 📂 How it Works
-1.  **Inventory Management**: The owner adds or deletes items in a Google Sheet.
-2.  **Data Fetching**: The app fetches the "Published to Web" CSV link from Google.
-3.  **Parsing**: PapaParse converts the CSV text into a JSON object array.
-4.  **Rendering**: JavaScript maps through the array to generate high-end product cards dynamically.
-
-## 🔧 Installation & Setup
-1.  **Clone the repository**:
-    ```bash
-    git clone [https://github.com/fkssn01/luxe-closet.git](https://github.com/fkssn01/luxe-closet.git)
-    ```
-2.  **Open locally**: Simply open `index.html` in your browser.
-3.  **Customization**: To use your own data, replace the `CSV_URL` in `js/product.js` with your own Google Sheet CSV link.
+FK STORES is a premium, high-performance e-commerce landing page built with a focus on luxury aesthetics and "No-Backend" efficiency. It features a modern glassmorphism UI, dynamic product rendering, and a custom order-tracking system.
 
 ---
 
-### Why this belongs in my Portfolio
-This project demonstrates my ability to solve real-world problems (high database costs) with creative technical solutions (CSV parsing). It showcases full-stack thinking—handling data management, performance optimization, and professional deployment.
+## ✨ Features
+
+* Dynamic Product Rendering: Products are injected via JavaScript arrays for easy inventory management.
+* Glassmorphism UI: A sleek, frosted-glass design for the shopping cart and navigation.
+* Smooth Animations: Powered by AOS (Animate On Scroll) and Anime.js for high-end interaction effects.
+* WhatsApp Checkout: Generates a formatted order list (Name, Qty, Price) sent directly to the owner.
+* Cloud Order Tracking: Automated logging of every checkout attempt to a Google Sheet via Google Apps Script.
+* Responsive Design: Fully optimized for mobile, tablet, and desktop viewing.
 
 ---
-Created by Temilade Oshinfisan- Aspiring Web Developer & Data Enthusiast.
+
+## 🛠 Tech Stack
+
+* Frontend: HTML5, CSS3 (Flexbox/Grid), Vanilla JavaScript.
+* Animations: AOS.js, Anime.js.
+* Automation: Google Apps Script & Google Sheets API.
+* Communication: WhatsApp Business API.
+
+---
+
+## 🚀 Setup & Installation
+
+1.  Clone the Repository:
+        git clone [https://github.com/fkssn01/FK-STORES.git](https://github.com/fkssn01/FK-STORES.git)
+    
+2.  Launch the Project:
+    Open index.html using Live Server in VS Code.
+3.  Google Sheets Integration:
+    * Create a Google Sheet named luxeOrderTracker.
+    * Open Extensions > Apps Script and deploy the doPost function as a Web App.
+    * Set access to "Anyone" and paste the deployment URL into sidebar.js.
+
+---
+
+## 👨‍💻 Author
+
+#OSHINFISAN TEMILADE
+*Chemical Engineering Student | University of Lagos* [Portfolio](https://temiport-six.vercel.app/) | [LinkedIn](https://www.linkedin.com/in/temilade-oshinfisan-174006312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+
+---
+
+## 📜 License
+This project is for educational purposes under the MIT License.
