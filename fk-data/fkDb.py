@@ -17,6 +17,8 @@ try:
   
     df = pd.read_csv(SHEET_URL)
     
+    df['Items'] = df['Items'].astype(str)
+    
     
     df['Price_Numeric'] = df['Total Price'].replace('[₦,]', '', regex=True).astype(float)
 
