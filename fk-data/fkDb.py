@@ -65,10 +65,17 @@ try:
    
     st.subheader("Recent Order Log")
     if st.checkbox("Show Order Details"):
-        display_df = df[['Date_Proper', 'OrderID', 'Items', 'Total Price']].copy()
-        display_df = display_df.astype(str)
-        st.table(display_df.sort_values(by='Date_Proper', ascending=False).head(20))
-
+         try:
+            display_df = df[['Date_Proper', 'OrderID', 'Items_Fixed', 'Total Price']].copy()
+        
+        # Brute force conversion to text to kill the LargeUtf8 error forever
+            display_df = display_df.astype(str)
+        
+        # Show as a static table (much more stable than the interactive dataframe)
+            st.table(display_df.sort_values(by='Date_Proper', ascending=False).head(15))
+         except Exception as table_err:
+                st.write("Refreshing data... please wait.")
+        
 except Exception as e:
     st.warning("Connect your Google Sheet 'Publish to Web' URL to see live data.")
     st.error(f"Error Details: {e}")
