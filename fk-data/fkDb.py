@@ -65,9 +65,9 @@ try:
    
     st.subheader("Recent Order Log")
     if st.checkbox("Show Order Details"):
-  
-        display_df = df[['Date_Proper', 'OrderID', 'Items', 'Total Price']].sort_values(by='Date_Proper', ascending=False)
-        st.dataframe(display_df, use_container_width=True)
+        display_df = df[['Date_Proper', 'OrderID', 'Items', 'Total Price']].copy()
+        display_df = display_df.astype(str)
+        st.table(display_df.sort_values(by='Date_Proper', ascending=False).head(20))
 
 except Exception as e:
     st.warning("Connect your Google Sheet 'Publish to Web' URL to see live data.")
