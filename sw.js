@@ -1,4 +1,4 @@
-const CACHE_NAME = 'luxe-v12';
+const CACHE_NAME = 'luxe-v16';
 const criticalAssets = [
   './',
   './index.html',

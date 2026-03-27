@@ -1182,18 +1182,63 @@ border-bottom: 1px solid rgb(228, 204, 228);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    gap: 10px;
+    margin: 90px auto 0 auto;
+    gap: 25px;
 }
 
 .up-sec .log-info .log-cont {
-    background-color: green;
+    
+    border: 1px solid rgb(70, 68, 69);
    display: flex;
    align-items: center;
-   justify-content: center;   
+   justify-content: left; 
+   padding-left: 20px;
+   gap: 20px;
+   width: 300px;
+   height: 90px;
+   border-radius: 15px;
+   flex-wrap: nowrap;
+   
 }
 
+.log-cont i {
+    background-color: rgb(110, 108, 110);
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   width: 50px;
+   height: 50px;
 
+    padding: 15px;
+    color: #332b32;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.log-sub p:nth-of-type(1) {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fffeff;
+}
+
+.log-cont p:nth-of-type(2) {
+    color: rgb(175, 174, 175);
+   
+}
+
+ .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: rgb(255, 255, 255);
+    background-color: rgb(20, 20, 20); 
+    gap: 2rem;
+    padding: 40 0 30 20;
+    
+}
+
+.brand-section {
+    grid-column: span 2;
+}
 
  @media (min-width: 1300px) {
 .essence {
