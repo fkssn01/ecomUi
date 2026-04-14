@@ -53,9 +53,9 @@
 
      <h1>FK Stores</h1>
      <section id="menuNav" class="menu">
-        <a href="#" onclick="closeNav()">HOME</a>
-        <a href="#" onclick="closeNav()">SHOP</a>
-        <a href="#" onclick="closeNav()">ABOUT</a>
+        <a  onclick="homePage()">HOME</a>
+        <a onclick="openShop()">SHOP</a>
+        <a href="#" >ABOUT</a>
      </section>
 
      <section class="icons mess ">
@@ -72,6 +72,7 @@
     </nav>
 </header>
 
+<section  class="homey">
 <section class="sec1" >
 <p class="lagos">LAGOS • NIGERIA </p>
 <p class="aura ">Your aura, upgraded</p>
@@ -106,7 +107,7 @@
 <section class="grid">
 </section>
 
-<div class="more-p" data-aos="fade-up"><button>VIEW ALL PRODUCTS <i class="fa fa-arrow-right"></i></button></div>
+<div class="more-p" data-aos="fade-up"><button onclick="openShop()">VIEW ALL PRODUCTS <i class="fa fa-arrow-right"></i></button></div>
 
 <section class="essence">
           <div class="ess-div" data-aos="fade-in"><h4>OUR ESSENCE</h4>
@@ -143,23 +144,46 @@
 </div>
 </section>
 
+</section>
+
+
+
+
+
+<section class="shopPage" >
+ <div class="sarchpart">
+    <h1 style="color: rgb(216, 201, 218); font-weight: 500;">All Products</h1>
+    <p style="font-size: 20px;" class="shopProd">26 products</p>
+    <div class="searchin"><i class="fa fa-search"></i><input id="search" placeholder="Search Product" type="text"></div>
+    <div class="prodFilter" >
+      <div>All</div>
+      <div>Perfumes</div>
+      <div>Clothes</div>
+      <div>Accessories</div>
+    </div>
+ </div>
+
+ <section class="shopPageGrid grid" style="padding-bottom: 50px;" ></section>
+</section>
+
+
 
 <!--footer-->
 <footer class="footer-grid">
   <div class="brand-section">
-    <h2>The Luxe Closet</h2>
-    <p>Curated luxury perfumes, fashion, and lifestyle items. Lagos-based.</p>
-    <div>
+    <h2>FK Stores</h2>
+    <p>Curated luxury perfumes, fashion, and lifestyle items. <br> Lagos-based.</p>
+    <div class="social-icons">
       <i class="fa-brands fa-instagram"></i>
-      <i></i>
-      <i></i>
+      <i class="fa-brands fa-whatsapp"></i>
+      <i class="fa-brands fa-tiktok"></i>
     </div>
-    </div>
+  </div>
   
   <div class="links-section">
     <h3>Quick Links</h3>
     <ul>
-      <li>Shop</li>
+      <li onclick="openShop()">Shop</li>
       <li>About Us</li>
       <li>Admin</li>
     </ul>
@@ -168,13 +192,13 @@
   <div class="contact-section">
     <h3>Contact</h3>
     <ul>
-      <li>Lagos, Nigeria</li>
-      <li>09134993369</li>
-      <li>08023086430</li>
+      <li><i class="fa fa-location-dot"></i> Lagos, Nigeria</li>
+      <li><i class="fa fa-phone"></i> 09134993369</li>
+      <li><i class="fa fa-phone"></i> 08023086430</li>
     </ul>
   </div>
   
-  <div>2026 FK Stores. All Rights reserved.</div>
+  <div class="footer-bottom">&copy; 2026 FK Stores. All Rights reserved.</div>
 </footer>
 
 

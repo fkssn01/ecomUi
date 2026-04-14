@@ -20,8 +20,8 @@ function closeNav() {
 
 // Button feedback animation for cart buttons
 document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector(".grid");
-  if (grid) {
+  const grids = document.querySelectorAll(".grid, .shopPageGrid");
+  grids.forEach(grid => {
     grid.addEventListener('click', (e) => {
   if (e.target.closest('.cart-btn')) {
     const clickedBtn = e.target.closest('.cart-btn');
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000); 
   }
     });
-  }
+  });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,3 +53,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (openMenu) openMenu.addEventListener("click", sideMenu);
     if (closeSide) closeSide.addEventListener("click", closeNav);
 });
+
+
+const homey = document.querySelector(".homey");
+const shopPage = document.querySelector(".shopPage");
+
+function openShop() {
+  homey.style.display = "none";
+  shopPage.style.display = "block";
+
+  // Tell the animation library to recalculate the newly visible elements
+  setTimeout(() => {
+    if (typeof AOS !== 'undefined') AOS.refresh();
+    window.scrollTo(0, 0); // Optional: Scroll to top for a fresh view
+  }, 50);
+}
+
+function homePage() {
+  homey.style.display = "block";
+  shopPage.style.display = "none";
+
+  // Tell the animation library to recalculate the newly visible elements
+  setTimeout(() => {
+    if (typeof AOS !== 'undefined') AOS.refresh();
+    window.scrollTo(0, 0);
+  }, 50);
+}

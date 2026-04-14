@@ -1,4 +1,4 @@
-const CACHE_NAME = 'luxe-v16';
+const CACHE_NAME = 'luxe-v19';
 const criticalAssets = [
   './',
   './index.html',
@@ -62,12 +62,20 @@ self.addEventListener('fetch', event => {
     return;
   }
   
-  // Cache first strategy for local assets
+  // Network first strategy for local assets (always checks for updates)
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    }).catch(() => {
-      return caches.match('./index.html');
-    })
+    fetch(event.request)
+      .then(response => {
+        // Cache the latest version of the asset for offline use
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseClone));
+        return response;
+      })
+      .catch(() => {
+        // If the network request fails (e.g., user is offline), serve from cache
+        return caches.match(event.request).then(cachedResponse => {
+          return cachedResponse || caches.match('./index.html');
+        });
+      })
   );
 });

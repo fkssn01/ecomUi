@@ -111,8 +111,8 @@ function openWish() {
 window.openWish = openWish;
 
 function setupWishlistListeners() {
-    const grid = document.querySelector(".grid");
-    if (grid) {
+    const grids = document.querySelectorAll(".grid, .shopPageGrid");
+    grids.forEach(grid => {
         grid.addEventListener('click', (e) => {
   if (e.target.closest('.fav-icon')) {
     const faBtn = e.target.closest('.fav-icon');
@@ -145,7 +145,7 @@ function setupWishlistListeners() {
     drawWishList();
   }
 });
-    }
+    });
 
     if (wishSidebar) {
         wishSidebar.addEventListener('click', (e) => e.stopPropagation());

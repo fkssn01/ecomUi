@@ -272,8 +272,8 @@ window.checkoutToWhatsApp = checkoutToWhatsApp;
  
 
 function setupCartEventListeners() {
-    const gridElement = document.querySelector(".grid");
-    if (gridElement) {
+    const gridElements = document.querySelectorAll(".grid, .shopPageGrid");
+    gridElements.forEach(gridElement => {
         gridElement.addEventListener('click', (e) => {
         if (e.target.closest('.cart-btn')) {
             const cartBtn = e.target.closest('.cart-btn');
@@ -347,7 +347,7 @@ function setupCartEventListeners() {
             }
         }
     });
-}
+    });
 }
 
 

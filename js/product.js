@@ -115,7 +115,9 @@ async function loadLuxeProducts() {
 
 function renderProducts(sheetProducts) {
     const grid = document.querySelector(".grid");
+    const   shopPageGrid = document.querySelector(".shopPageGrid")
     grid.innerHTML = "";
+    if (shopPageGrid) shopPageGrid.innerHTML = "";
     console.log('Rendering products:', sheetProducts);
     
     if (!sheetProducts || !Array.isArray(sheetProducts) || sheetProducts.length === 0) {
@@ -142,11 +144,65 @@ function renderProducts(sheetProducts) {
         </div>`;
         
         console.log(`Product ${idx} HTML:`, productHTML);
-        grid.innerHTML += productHTML;
+        // Only append the first 3 products to the home page grid
+        if (idx < 4) {
+            grid.innerHTML += productHTML;
+        }
+        // Append all products to the shop page grid
+        if (shopPageGrid) shopPageGrid.innerHTML += productHTML;
     });
     
     console.log('Final grid HTML:', grid.innerHTML);
+    
+    // Update the product count text automatically when items are loaded
+    const shopProd = document.querySelector(".shopProd");
+    if (shopProd) {
+        shopProd.textContent = `${sheetProducts.length} product${sheetProducts.length !== 1 ? 's' : ''}`;
+    }
 }
+
+
+const searcher = document.querySelector("#search");
+if (searcher) {
+    searcher.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        
+        // Grab all the actual HTML product cards inside the shop page
+        const renderedProducts = document.querySelectorAll(".shopPageGrid .product");
+        let visibleCount = 0;
+        
+        renderedProducts.forEach(productNode => {
+            const titleElement = productNode.querySelector(".prod-name");
+            if (titleElement) {
+                const title = titleElement.innerText.toLowerCase();
+                // Show if it matches the search, hide if it doesn't
+                if (title.includes(searchTerm)) {
+                    productNode.style.display = '';
+                    visibleCount++;
+                    
+                    // Trick AOS into re-playing the fade-up animation
+                    productNode.classList.remove('aos-animate');
+                    setTimeout(() => productNode.classList.add('aos-animate'), 10);
+                } else {
+                    productNode.style.display = 'none';
+                }
+            }
+        });
+        
+        // Update the product count display after filtering
+        const shopProd = document.querySelector(".shopProd");
+        if (shopProd) {
+            shopProd.textContent = `${visibleCount} product${visibleCount !== 1 ? 's' : ''}`;
+        }
+        
+        // Tell AOS to recalculate positions since elements were hidden/shown
+        setTimeout(() => {
+            if (typeof AOS !== 'undefined') AOS.refresh();
+        }, 50);
+    });
+}
+
+
 
 // Preload data as soon as possible
 document.addEventListener('DOMContentLoaded', loadLuxeProducts);
