@@ -1456,6 +1456,15 @@ border-bottom: 1px solid rgb(228, 204, 228);
 section .ess-div h1 {
     font-size: 50px;
 }
+
+ .sarchpart {
+    padding-left: 5%;
+    padding-right: 5%;
+ }
+
+ .up-sec .log-info {
+    flex-wrap: wrap;
+ }
 }
 
 
@@ -1541,6 +1550,20 @@ gap: 30px;
         width: 100%;
     }
  
+    .prodFilter {
+        flex-wrap: wrap;
+    }
+ 
+    .up-sec .log-info {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .up-sec .log-info .log-cont {
+        width: 100%;
+        max-width: 400px;
+    }
+
 }.appended-item {
     display: flex;
     justify-content: space-between;
