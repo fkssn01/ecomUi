@@ -1,10 +1,10 @@
-# FK STORES 🛍
+# FK STORES 
 
 FK STORES is a premium, high-performance e-commerce landing page built with a focus on luxury aesthetics and "No-Backend" efficiency. It features a modern glassmorphism UI, dynamic product rendering, and a custom order-tracking system.
 
 ---
 
-## ✨ Features
+##  Features
 
 * Dynamic Product Rendering: Products are injected via JavaScript arrays for easy inventory management.
 * Glassmorphism UI: A sleek, frosted-glass design for the shopping cart and navigation.
@@ -15,7 +15,7 @@ FK STORES is a premium, high-performance e-commerce landing page built with a fo
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * Frontend: HTML5, CSS3 (Flexbox/Grid), Vanilla JavaScript.
 * Animations: AOS.js, Anime.js.
@@ -24,7 +24,7 @@ FK STORES is a premium, high-performance e-commerce landing page built with a fo
 
 ---
 
-## 🚀 Setup & Installation
+##  Setup & Installation
 
 1.  Clone the Repository:
         git clone [https://github.com/fkssn01/FK-STORES.git](https://github.com/fkssn01/FK-STORES.git)
@@ -38,11 +38,11 @@ FK STORES is a premium, high-performance e-commerce landing page built with a fo
 
 ---
 
-# 🛍️ FK STORES | Full-Stack E-commerce & Analytics
+#  FK STORES | Full-Stack E-commerce & Analytics
 
 A luxury fashion PWA (Progressive Web App) integrated with a real-time business intelligence dashboard.
 
-## 🚀 Key Features
+##  Key Features
 * **Progressive Web App**: Optimized for mobile with "Add to Home Screen" functionality.
 * **Live Database**: Order data is automatically synced from the storefront to Google Sheets.
 * **Real-Time Analytics**: A custom Python dashboard tracks revenue, order volume, and sales trends.
@@ -65,7 +65,7 @@ The dashboard cleanses raw transaction data (handling currency formatting and ti
 
 
 
-## 👨‍💻 Author
+## Author
 
 #OSHINFISAN TEMILADE
 *Chemical Engineering Student | University of Lagos* [Portfolio](https://temiport-six.vercel.app/) | [LinkedIn](https://www.linkedin.com/in/temilade-oshinfisan-174006312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
